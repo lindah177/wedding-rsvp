@@ -1,0 +1,572 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #f8f6ef;
+    color: #333;
+}
+
+/* Sage green top border */
+body::before {
+    content: "";
+    display: block;
+    height: 18px;
+    background: #9caf88;
+}
+
+/* Main invitation */
+.invitation {
+    max-width: 700px;
+    margin: auto;
+    background: #f8f6ef;
+}
+
+/* HERO */
+
+.hero {
+    position: relative;
+    min-height: 750px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Wedding photo */
+.hero-background {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        url("assets/images/couple.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: 0;
+}
+
+/* Soft cream fade over the photograph */
+.hero-background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(248, 246, 239, 0.90) 0%,
+            rgba(248, 246, 239, 0.60) 30%,
+            rgba(248, 246, 239, 0.45) 55%,
+            rgba(248, 246, 239, 0.85) 100%
+        );
+}
+
+/* Text */
+.hero-content {
+    position: relative;
+    z-index: 1;
+
+    padding: 40px 30px;
+}
+
+
+
+.eyebrow {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #596653;
+    margin-bottom: 25px;
+}
+
+
+.hero h1 {
+    font-size: clamp(60px, 12vw, 100px);
+    font-weight: 400;
+    line-height: 0.85;
+    color: #3f493b;
+
+    text-shadow:
+        0 1px 10px rgba(255, 255, 255, 0.5);
+}
+
+
+.hero h1 span {
+    display: block;
+    font-size: 40px;
+    margin: 18px 0;
+
+    color: #718265;
+}
+
+
+.date {
+    margin-top: 35px;
+
+    letter-spacing: 4px;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+
+    color: #596653;
+}
+
+/* Sections */
+.welcome,
+.details,
+.rsvp {
+    text-align: center;
+    padding: 80px 30px;
+}
+
+.welcome h2,
+.details h2,
+.rsvp h2 {
+    font-size: 45px;
+    font-weight: 400;
+    color: #3f493b;
+    margin-bottom: 25px;
+}
+
+.welcome p:last-child,
+.rsvp p {
+    max-width: 500px;
+    margin: auto;
+    line-height: 1.8;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* INVITATION MESSAGE */
+
+.welcome {
+    text-align: center;
+    padding: 90px 30px;
+    background: #f8f6ef;
+}
+
+.welcome h2 {
+    max-width: 580px;
+    margin: 0 auto 30px;
+
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(36px, 7vw, 52px);
+    line-height: 1.15;
+    font-weight: 400;
+
+    color: #3f493b;
+}
+
+.welcome p:last-child {
+    max-width: 500px;
+    margin: auto;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.9;
+
+    color: #596653;
+}
+
+/* COUNTDOWN */
+
+.countdown {
+    text-align: center;
+    padding: 80px 25px;
+
+    background: #e9eee3;
+}
+
+.countdown h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(38px, 7vw, 52px);
+    font-weight: 400;
+
+    color: #3f493b;
+
+    margin-bottom: 45px;
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    max-width: 600px;
+    margin: auto;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 90px;
+}
+
+.countdown-item span {
+    font-family: Georgia, 'Times New Roman', serif;
+
+    font-size: clamp(40px, 8vw, 60px);
+    font-weight: 400;
+
+    color: #596653;
+}
+
+.countdown-item small {
+    margin-top: 8px;
+
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #718265;
+}
+
+/* Details */
+.details {
+    background: #e9eee3;
+}
+
+.detail-item {
+    margin: 35px 0;
+}
+
+.detail-item h3 {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #718265;
+    margin-bottom: 10px;
+}
+
+.detail-item p {
+    line-height: 1.7;
+}
+
+.location-button,
+#rsvpButton {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    border: 1px solid #7f9172;
+    background: transparent;
+    color: #596653;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.location-button:hover,
+#rsvpButton:hover {
+    background: #9caf88;
+    color: white;
+}
+
+/* RSVP FORM */
+
+.rsvp {
+    background: #f8f6ef;
+}
+
+.rsvp-intro {
+    margin-bottom: 45px !important;
+}
+
+#rsvpForm {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 28px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+
+    color: #596653;
+}
+
+.form-group label span {
+    font-size: 10px;
+    letter-spacing: 0;
+}
+
+.form-group input[type="text"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 15px;
+
+    border: 1px solid #c8d0c0;
+
+    background: #ffffff;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+
+    color: #333;
+
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #8da07d;
+}
+
+
+/* Attendance options */
+
+.attendance-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.radio-option {
+    display: flex !important;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px;
+
+    border: 1px solid #c8d0c0;
+
+    cursor: pointer;
+}
+
+.radio-option input {
+    accent-color: #718265;
+}
+
+
+/* Submit */
+
+.submit-button {
+    width: 100%;
+
+    padding: 17px;
+
+    border: none;
+
+    background: #718265;
+
+    color: white;
+
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background: #596653;
+}
+
+.submit-button:disabled {
+    background: #a9b39e;
+    cursor: not-allowed;
+}
+
+/* Utility: hide an element (used to hide guest-count/dietary
+   fields when someone declines the invitation) */
+.hidden {
+    display: none !important;
+}
+
+/* Error message shown if the RSVP fails to save to the sheet */
+.rsvp-error {
+    display: none;
+
+    margin-bottom: 20px;
+    padding: 14px 16px;
+
+    border: 1px solid #b98a72;
+    background: #f6ece7;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+
+    color: #8a5236;
+}
+
+.rsvp-error.visible {
+    display: block;
+}
+
+/* RSVP CONFIRMATION */
+
+.rsvp-confirmation {
+    display: none;
+
+    max-width: 500px;
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.confirmation-icon {
+    width: 55px;
+    height: 55px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #8da07d;
+    border-radius: 50%;
+
+    color: #718265;
+
+    font-size: 24px;
+}
+
+.rsvp-confirmation h2 {
+    margin-bottom: 20px;
+}
+
+.confirmation-details {
+    margin: 35px 0;
+
+    padding: 25px;
+
+    border-top: 1px solid #c8d0c0;
+    border-bottom: 1px solid #c8d0c0;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    color: #596653;
+}
+
+.confirmation-details strong {
+    color: #3f493b;
+}
+
+.back-button {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 15px;
+
+    border: 1px solid #8da07d;
+
+    background: transparent;
+
+    color: #596653;
+
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background: #e9eee3;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 60px 30px;
+}
+
+/* Sage green bottom border */
+footer::after {
+    content: "";
+    display: block;
+    height: 18px;
+    background: #9caf88;
+    margin: 60px -30px -60px;
+}
+
+footer h2 {
+    font-size: 40px;
+    font-weight: 400;
+    color: #3f493b;
+}
+
+/* ================================
+   MOBILE ADJUSTMENTS
+   Most guests will open this on a phone (often via WhatsApp),
+   so this section tightens up spacing and fixes the countdown
+   row, which otherwise doesn't fit on narrow screens.
+   The hero is intentionally left untouched.
+   ================================ */
+@media (max-width: 480px) {
+
+    .welcome,
+    .details,
+    .rsvp {
+        padding: 60px 22px;
+    }
+
+    .countdown {
+        padding: 60px 15px;
+    }
+
+    /* 4 items at the desktop min-width (90px) + gaps don't fit
+       on a ~320-375px phone screen, so shrink both on small screens */
+    .countdown-container {
+        gap: 10px;
+    }
+
+    .countdown-item {
+        min-width: 0;
+        flex: 1 1 0;
+    }
+
+    .countdown-item span {
+        font-size: clamp(28px, 9vw, 40px);
+    }
+
+    .countdown-item small {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    #rsvpForm {
+        padding: 0 4px;
+    }
+}

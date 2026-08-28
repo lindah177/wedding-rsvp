@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wedding Invitation</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="invitation">
+
+        <!-- Hero Section -->
+        <section class="hero">
+
+            <div class="hero-background"></div>
+
+            <div class="hero-content">
+
+                <p class="eyebrow">THE WEDDING OF</p>
+
+                <h1>
+                    Kiara
+                    <span>&</span>
+                    Gcina
+                </h1>
+
+                <p class="date">18 DECEMBER 2026</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Welcome Section -->
+        <section class="welcome">
+
+            <p class="eyebrow">TOGETHER WITH OUR FAMILIES</p>
+
+            <h2>
+                We invite you to celebrate
+                our special day with us.
+            </h2>
+
+            <p>
+                Your presence would mean the world to us
+                as we begin this beautiful new chapter
+                together.
+            </p>
+
+        </section>
+
+
+        <!-- Details Section -->
+        <section class="details">
+
+            <p class="eyebrow">THE DAY</p>
+
+            <h2>Wedding Details</h2>
+
+            <div class="detail-item">
+                <h3>DATE</h3>
+                <p>Friday, 18 December 2026</p>
+            </div>
+
+            <div class="detail-item">
+                <h3>TIME</h3>
+                <p>12:00</p>
+            </div>
+
+            <div class="detail-item">
+                <h3>VENUE</h3>
+                <p>Johannesburg Bible College</p>
+                <p>30 Hampton Avenue, Corner Golf St,
+                     Auckland Park, Johannesburg 2092</p>
+            </div>
+
+            <a
+                href="https://maps.app.goo.gl/eqWFmKBnWpi738CZA?g_st=am"
+                class="location-button"
+                target="_blank"
+            >
+                VIEW LOCATION
+            </a>
+
+        </section>
+        <!-- Countdown -->
+        <section class="countdown">
+
+            <p class="eyebrow">THE COUNTDOWN</p>
+
+            <h2>Until we say "I do"</h2>
+
+            <div class="countdown-container">
+
+                <div class="countdown-item">
+                    <span id="days">00</span>
+                    <small>DAYS</small>
+                </div>
+
+                <div class="countdown-item">
+                    <span id="hours">00</span>
+                    <small>HOURS</small>
+                </div>
+
+                <div class="countdown-item">
+                    <span id="minutes">00</span>
+                    <small>MINUTES</small>
+                </div>
+
+                <div class="countdown-item">
+                    <span id="seconds">00</span>
+                    <small>SECONDS</small>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- RSVP -->
+        <section class="rsvp">
+
+            <p class="eyebrow">KINDLY RESPOND</p>
+
+            <h2>Will you join us?</h2>
+
+            <p class="rsvp-intro">
+                Please let us know if you will be
+                celebrating with us.
+            </p>
+
+            <form id="rsvpForm">
+
+                <!-- Guest Name -->
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Attendance -->
+                <div class="form-group">
+
+                    <label>
+                        Will you be attending?
+                    </label>
+
+                    <div class="attendance-options">
+
+                        <label class="radio-option">
+
+                            <input
+                                type="radio"
+                                name="attendance"
+                                value="Yes"
+                                required
+                            >
+
+                            <span>Joyfully accepts</span>
+
+                        </label>
+
+
+                        <label class="radio-option">
+
+                            <input
+                                type="radio"
+                                name="attendance"
+                                value="No"
+                            >
+
+                            <span>Regretfully declines</span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Number of guests (hidden automatically if guest declines) -->
+                <div class="form-group" id="guestCountGroup">
+
+                    <label for="guests">
+                        Number of guests
+                    </label>
+
+                    <select id="guests" name="guests">
+
+                        <option value="1">1 guest</option>
+                        <option value="2">2 guests</option>
+                        <option value="3">3 guests</option>
+                        <option value="4">4 guests</option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Dietary requirements (hidden automatically if guest declines) -->
+                <div class="form-group" id="dietaryGroup">
+
+                    <label for="dietary">
+                        Dietary requirements
+                    </label>
+
+                    <textarea
+                        id="dietary"
+                        name="dietary"
+                        placeholder="Please let us know of any dietary requirements"
+                        rows="4"
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Message -->
+                <div class="form-group">
+
+                    <label for="message">
+                        A message for the couple <span>(optional)</span>
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Leave a little note..."
+                        rows="4"
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Shown only if the RSVP fails to save -->
+                <p id="rsvpError" class="rsvp-error" role="alert"></p>
+
+                <button
+                    type="submit"
+                    class="submit-button"
+                    id="submitButton"
+                >
+                    SEND RSVP
+                </button>
+
+            </form>
+
+            <!--
+                RSVP Confirmation.
+                IMPORTANT: this is a SIBLING of the form above, not a child of it.
+                It used to live inside <form>, which meant hiding the form with
+                display:none also hid this panel, since a hidden parent hides
+                everything inside it. Keeping it outside the form is what lets
+                the two panels swap correctly.
+            -->
+            <div id="rsvpConfirmation" class="rsvp-confirmation">
+
+                <div class="confirmation-icon">✓</div>
+
+                <p class="eyebrow">RSVP RECEIVED</p>
+
+                <h2>Thank you!</h2>
+
+                <p id="confirmationMessage">
+                    Your RSVP has been received.
+                    We look forward to celebrating with you.
+                </p>
+
+                <div class="confirmation-details">
+
+                    <p>
+                        <strong>18 December 2026</strong>
+                    </p>
+
+                    <p>
+                        Johannesburg Bible College
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="calendarButton"
+                    class="submit-button"
+                >
+                    ADD TO CALENDAR
+                </button>
+
+                <button
+                    type="button"
+                    id="backButton"
+                    class="back-button"
+                >
+                    BACK TO INVITATION
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Footer -->
+        <footer>
+
+            <p>
+                With love,
+            </p>
+
+            <h2>Kiara & Gcina</h2>
+
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
