@@ -8,14 +8,13 @@
 const CONFIG = {
 
     // Wedding date/time, used by both the countdown and the calendar file.
-    weddingDateTimeString: "December 18, 2026 12:00:00",
+    weddingDateTimeString: "December 18, 2026 14:00:00",
     weddingEndDateTimeString: "December 18, 2026 18:00:00",
 
     eventTitle: "Kiara & Gcina's Wedding",
 
-    venueName: "Johannesburg Bible College",
     venueAddress:
-        "Johannesburg Bible College, 30 Hampton Avenue, Corner Golf St, Auckland Park, Johannesburg 2092",
+        "30 Hampton Avenue, Corner Golf St, Auckland Park, Johannesburg 2092",
 
     googleMapsLink: "https://maps.app.goo.gl/eqWFmKBnWpi738CZA?g_st=am",
 
@@ -30,7 +29,7 @@ const CONFIG = {
     // design once deployed with "Anyone" access. The real credentials
     // (the Google account and the sheet itself) never leave Google's
     // servers, which is why this is safe to keep in frontend code.
-    googleScriptUrl: "https://script.google.com/macros/s/AKfycbysM8Gd7h2EkbbKc1VB_i4SveypDSOzR2lfwTZoEsUa-uLYJRGlHsWkTwb4uQBDaOFOtQ/exec"
+    googleScriptUrl: "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE"
 
 };
 
@@ -101,34 +100,6 @@ const backButton = document.getElementById("backButton");
 const submitButton = document.getElementById("submitButton");
 const rsvpError = document.getElementById("rsvpError");
 
-const guestCountGroup = document.getElementById("guestCountGroup");
-const dietaryGroup = document.getElementById("dietaryGroup");
-const attendanceRadios = document.querySelectorAll('input[name="attendance"]');
-
-
-// ================================
-// SHOW/HIDE GUEST COUNT + DIETARY FIELDS
-// These only make sense if the guest is actually attending,
-// so they're hidden when "Regretfully declines" is selected.
-// ================================
-
-function updateAttendanceFields() {
-
-    const selected = document.querySelector('input[name="attendance"]:checked');
-    const isAttending = selected ? selected.value === "Yes" : true;
-
-    guestCountGroup.classList.toggle("hidden", !isAttending);
-    dietaryGroup.classList.toggle("hidden", !isAttending);
-}
-
-attendanceRadios.forEach(function (radio) {
-    radio.addEventListener("change", updateAttendanceFields);
-});
-
-// Run once on load in case the browser restores a previously
-// selected radio button (e.g. after the user hits "back").
-updateAttendanceFields();
-
 
 // ================================
 // RSVP SUBMISSION
@@ -183,8 +154,7 @@ rsvpForm.addEventListener("submit", async function (event) {
     const rsvpData = {
         name: guestName,
         attendance: document.querySelector('input[name="attendance"]:checked').value,
-        guests: document.getElementById("guests").value,
-        dietary: document.getElementById("dietary").value.trim(),
+        songSuggestion: document.getElementById("songSuggestion").value.trim(),
         message: document.getElementById("message").value.trim()
     };
 
@@ -192,29 +162,30 @@ rsvpForm.addEventListener("submit", async function (event) {
 
     try {
 
-        const response = await fetch(CONFIG.googleScriptUrl, {
+        // mode: "no-cors" deliberately means we can't read back the
+        // response body or status (it comes back "opaque"). That's a
+        // trade-off, made on purpose: Apps Script writes the row the
+        // moment it runs, *before* it even tries to reply, and some
+        // mobile browsers - especially in-app browsers like the one
+        // WhatsApp or Instagram open links in - fail specifically at
+        // reading that reply, even though the save already succeeded.
+        // Trying to verify the response was causing real RSVPs to be
+        // saved correctly while still showing the guest an error.
+        //
+        // The trade-off: we can no longer tell "saved fine" apart from
+        // "Apps Script itself threw an error" - we can only detect the
+        // request failing to send at all (e.g. no internet connection).
+        // For a simple appendRow() call, that residual risk is small
+        // compared to guests on WhatsApp reliably getting stuck.
+        await fetch(CONFIG.googleScriptUrl, {
             method: "POST",
-            // "text/plain" avoids a CORS preflight request, which
-            // Google Apps Script web apps don't handle. The Apps
-            // Script side still reads this as JSON (see e.postData.contents
-            // in GOOGLE_SHEETS_SETUP.md).
+            mode: "no-cors",
             headers: {
                 "Content-Type": "text/plain;charset=utf-8"
             },
             body: JSON.stringify(rsvpData)
         });
 
-        if (!response.ok) {
-            throw new Error("Server responded with an error.");
-        }
-
-        const result = await response.json();
-
-        if (result.status !== "success") {
-            throw new Error(result.message || "The sheet did not confirm the save.");
-        }
-
-        // Only now, with a confirmed save, do we show the confirmation.
         rsvpForm.classList.add("hidden");
         rsvpConfirmation.style.display = "block";
 
