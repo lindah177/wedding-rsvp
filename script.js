@@ -14,7 +14,7 @@ const CONFIG = {
     eventTitle: "Kiara & Gcina's Wedding",
 
     venueAddress:
-        "30 Hampton Avenue, Corner Golf St, Auckland Park, Johannesburg 2092",
+        "Johannesburg Bible College, 30 Hampton Avenue, Corner Golf St, Auckland Park, Johannesburg 2092",
 
     googleMapsLink: "https://maps.app.goo.gl/eqWFmKBnWpi738CZA?g_st=am",
 
@@ -29,7 +29,7 @@ const CONFIG = {
     // design once deployed with "Anyone" access. The real credentials
     // (the Google account and the sheet itself) never leave Google's
     // servers, which is why this is safe to keep in frontend code.
-    googleScriptUrl: "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE"
+    googleScriptUrl: "https://script.google.com/macros/s/AKfycbyjYGvt2inPn6w0UQ9umcfn0bqIPTqQrKDPuwU6evI7UqYtI1caxb04CWEeZHUsKd-YhA/exec"
 
 };
 
