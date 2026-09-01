@@ -8,11 +8,12 @@
 const CONFIG = {
 
     // Wedding date/time, used by both the countdown and the calendar file.
-    weddingDateTimeString: "December 18, 2026 14:00:00",
+    weddingDateTimeString: "December 18, 2026 12:00:00",
     weddingEndDateTimeString: "December 18, 2026 18:00:00",
 
     eventTitle: "Kiara & Gcina's Wedding",
 
+    venueName: "Johannesburg Bible College",
     venueAddress:
         "Johannesburg Bible College, 30 Hampton Avenue, Corner Golf St, Auckland Park, Johannesburg 2092",
 
@@ -29,7 +30,7 @@ const CONFIG = {
     // design once deployed with "Anyone" access. The real credentials
     // (the Google account and the sheet itself) never leave Google's
     // servers, which is why this is safe to keep in frontend code.
-    googleScriptUrl: "https://script.google.com/macros/s/AKfycbyjYGvt2inPn6w0UQ9umcfn0bqIPTqQrKDPuwU6evI7UqYtI1caxb04CWEeZHUsKd-YhA/exec"
+    googleScriptUrl: "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE"
 
 };
 
@@ -268,6 +269,8 @@ calendarButton.addEventListener("click", function () {
 
     const eventDescription = icsEscape(
         "We can't wait to celebrate with you!\n\n" +
+        "Dress Code: Shades of Green\n" +
+        "Forest Night · Olive Shade · Meadow Light · Sage Mist\n\n" +
         "Google Maps: " + CONFIG.googleMapsLink + "\n\n" +
         "Wedding Invitation: " + invitationLink
     );
