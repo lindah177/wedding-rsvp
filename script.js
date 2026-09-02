@@ -8,12 +8,11 @@
 const CONFIG = {
 
     // Wedding date/time, used by both the countdown and the calendar file.
-    weddingDateTimeString: "December 18, 2026 12:00:00",
+    weddingDateTimeString: "December 18, 2026 14:00:00",
     weddingEndDateTimeString: "December 18, 2026 18:00:00",
 
     eventTitle: "Kiara & Gcina's Wedding",
 
-    venueName: "Johannesburg Bible College",
     venueAddress:
         "Johannesburg Bible College, 30 Hampton Avenue, Corner Golf St, Auckland Park, Johannesburg 2092",
 
@@ -30,7 +29,7 @@ const CONFIG = {
     // design once deployed with "Anyone" access. The real credentials
     // (the Google account and the sheet itself) never leave Google's
     // servers, which is why this is safe to keep in frontend code.
-    googleScriptUrl: "https://script.google.com/macros/s/AKfycbysM8Gd7h2EkbbKc1VB_i4SveypDSOzR2lfwTZoEsUa-uLYJRGlHsWkTwb4uQBDaOFOtQ/exec"
+    googleScriptUrl: "https://script.google.com/macros/s/AKfycbze4TcV8xvo-5_jWFP0TnXISMF8eaWwWGuJO1YEhGFNcs7_pG5Ld0khkhjM76Yc4207/exec"
 
 };
 
