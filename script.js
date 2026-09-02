@@ -29,7 +29,7 @@ const CONFIG = {
     // design once deployed with "Anyone" access. The real credentials
     // (the Google account and the sheet itself) never leave Google's
     // servers, which is why this is safe to keep in frontend code.
-    googleScriptUrl: "https://script.google.com/macros/s/AKfycbyjYGvt2inPn6w0UQ9umcfn0bqIPTqQrKDPuwU6evI7UqYtI1caxb04CWEeZHUsKd-YhA/exec"
+    googleScriptUrl: "https://script.google.com/macros/s/AKfycbze4TcV8xvo-5_jWFP0TnXISMF8eaWwWGuJO1YEhGFNcs7_pG5Ld0khkhjM76Yc4207/exec"
 
 };
 
