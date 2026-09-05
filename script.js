@@ -268,6 +268,8 @@ calendarButton.addEventListener("click", function () {
 
     const eventDescription = icsEscape(
         "We can't wait to celebrate with you!\n\n" +
+        "Dress Code: Shades of Green\n" +
+        "Forest Night · Olive Shade · Meadow Light · Sage Mist\n\n" +
         "Google Maps: " + CONFIG.googleMapsLink + "\n\n" +
         "Wedding Invitation: " + invitationLink
     );

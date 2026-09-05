@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
 
+/* Dress code palette — kept as variables so the shades are easy
+   to swap later without hunting through the swatch rules below. */
+:root {
+    --forest-night: #1f3325;
+    --olive-shade: #6e6b47;
+    --meadow-light: #d7e3cc;
+    --sage-mist: #a7b29c;
+}
+
 
 * {
     margin: 0;
@@ -124,6 +133,7 @@ body::before {
 /* Sections */
 .welcome,
 .details,
+.dress-code,
 .rsvp {
     text-align: center;
     padding: 80px 30px;
@@ -131,6 +141,7 @@ body::before {
 
 .welcome h2,
 .details h2,
+.dress-code h2,
 .rsvp h2 {
     font-size: 45px;
     font-weight: 400;
@@ -274,6 +285,67 @@ body::before {
 #rsvpButton:hover {
     background: #9caf88;
     color: white;
+}
+
+/* DRESS CODE */
+
+.dress-code {
+    /* Same soft sage tint as Details/Countdown, so it reads as
+       part of the same "practical info" block rather than a
+       separate component, per the "subtle distinction" brief. */
+    background: #e9eee3;
+}
+
+.dress-code-palette {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+
+    max-width: 560px;
+    margin: 0 auto 45px;
+}
+
+.dress-code-swatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.swatch-color {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+
+    border-radius: 8px;
+    border: 1px solid rgba(63, 73, 59, 0.15);
+    box-shadow: 0 4px 14px rgba(63, 73, 59, 0.12);
+
+    margin-bottom: 14px;
+}
+
+.swatch-color.forest-night { background-color: var(--forest-night); }
+.swatch-color.olive-shade  { background-color: var(--olive-shade); }
+.swatch-color.meadow-light { background-color: var(--meadow-light); }
+.swatch-color.sage-mist    { background-color: var(--sage-mist); }
+
+.swatch-name {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+
+    color: #596653;
+    line-height: 1.4;
+}
+
+.dress-code-message {
+    max-width: 480px;
+    margin: 0 auto;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+
+    color: #596653;
 }
 
 /* RSVP FORM */
@@ -538,8 +610,15 @@ footer h2 {
 
     .welcome,
     .details,
+    .dress-code,
     .rsvp {
         padding: 60px 22px;
+    }
+
+    .dress-code-palette {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 280px;
+        gap: 20px 24px;
     }
 
     .countdown {
