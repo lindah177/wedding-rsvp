@@ -345,11 +345,16 @@ const slideshowPhotos = [
     "assets/images/IMG-20260905-WA0002[1].jpg",
     "assets/images/IMG-20260905-WA0000[1].jpg",
     "assets/images/IMG-20260906-WA0006[1].jpg",
+    "assets/images/IMG-20260907-WA0001[1].jpg",
     "assets/images/IMG-20260906-WA0008[1].jpg",
     "assets/images/IMG-20260906-WA0018[1].jpg",
     "assets/images/IMG-20260907-WA0003[1].jpg",
     "assets/images/IMG-20260905-WA0001[2].jpg",
-    "assets/images/IMG-20260906-WA0010[1].jpg"
+    "assets/images/IMG-20260906-WA0010[1].jpg",
+    "assets/images/IMG-20260907-WA0000[1].jpg",
+    "assets/images/IMG-20260907-WA0008[1].jpg",
+    "assets/images/IMG-20260907-WA0007[1].jpg"
+
 ];
 
 const slideshowImage = document.getElementById("slideshowImage");
