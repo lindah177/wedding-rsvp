@@ -331,3 +331,65 @@ calendarButton.addEventListener("click", function () {
     URL.revokeObjectURL(url);
 
 });
+
+// ================================
+// PHOTO SLIDESHOW
+// Fully isolated from everything above - its own variables and
+// IDs only, so it can't conflict with the RSVP/countdown/calendar
+// code. Safe to paste at the end of the file.
+// ================================
+
+// Replace these with the real photo paths once available - see
+// the note on where to place image files.
+const slideshowPhotos = [
+    "assets/images/slideshow-1.jpg",
+    "assets/images/slideshow-2.jpg",
+    "assets/images/slideshow-3.jpg",
+    "assets/images/slideshow-4.jpg"
+];
+
+const slideshowImage = document.getElementById("slideshowImage");
+const prevPhotoButton = document.getElementById("prevPhoto");
+const nextPhotoButton = document.getElementById("nextPhoto");
+const slideIndicatorsContainer = document.getElementById("slideIndicators");
+
+let currentSlideIndex = 0;
+
+function renderSlideIndicators() {
+
+    slideIndicatorsContainer.innerHTML = "";
+
+    slideshowPhotos.forEach(function (photo, index) {
+
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "slide-dot" + (index === currentSlideIndex ? " active" : "");
+        dot.setAttribute("aria-label", "Go to photo " + (index + 1));
+
+        dot.addEventListener("click", function () {
+            goToSlide(index);
+        });
+
+        slideIndicatorsContainer.appendChild(dot);
+    });
+}
+
+function goToSlide(index) {
+
+    // Wraps around in both directions (e.g. "previous" from the
+    // first photo goes to the last one).
+    currentSlideIndex = (index + slideshowPhotos.length) % slideshowPhotos.length;
+    slideshowImage.src = slideshowPhotos[currentSlideIndex];
+
+    renderSlideIndicators();
+}
+
+prevPhotoButton.addEventListener("click", function () {
+    goToSlide(currentSlideIndex - 1);
+});
+
+nextPhotoButton.addEventListener("click", function () {
+    goToSlide(currentSlideIndex + 1);
+});
+
+renderSlideIndicators();
